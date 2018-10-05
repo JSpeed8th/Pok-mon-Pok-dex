@@ -1,0 +1,29 @@
+body {
+  font-family: 'Press Start 2P', cursive;
+}
+
+#main_screen {
+  width: 250px;
+  height: 200px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 70% 70%;
+
+  border-radius: 5%;
+  background-color: #004B5C;
+}
+
+#second_screen {
+  width: 250px;
+  height: 150px;
+
+  border-radius: 5%;
+  background-color: #16FD00;
+}
+
+#name_of_pokemon {
+  border: 2px solid orange;
+  text-align: center;
+  color: white;
+  font-size: 1.5em;
+}
