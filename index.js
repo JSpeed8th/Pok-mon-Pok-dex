@@ -15,6 +15,7 @@ var dynamicAbilities3 = document.getElementById('abilities3');
 
 var clicks = 0;
 rightButton.addEventListener('click', function() {
+  leftButton.style.borderLeft = '5px solid black'
   if(clicks < jordansDeck.pokedex.length - 1) {
     clicks++
     ajaxCall()

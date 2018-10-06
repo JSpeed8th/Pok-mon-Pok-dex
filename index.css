@@ -1,6 +1,6 @@
 body {
   font-family: 'Press Start 2P', cursive;
-  padding: 5%;
+  padding: 4% 5%;
   background-color: #CC0A3E;
 }
 
@@ -16,7 +16,7 @@ h1 {
   background-position: center;
   background-repeat: no-repeat;
   background-size: 75% 75%;
-  border-radius: 2%;
+  border-radius: 5%;
   background-color: #234951;
   border: 6px solid #183238;
   padding: 1% 0 0 0;
@@ -36,7 +36,7 @@ h1 {
   width: 300px;
   height: 170px;
 
-  border-radius: 2%;
+  border-radius: 5%;
   background-color: #16FD00;
   border: 6px solid #095e00;
   text-align: center;
@@ -62,4 +62,14 @@ h1 {
   font-size: 8px;
   margin: 7px 15px;
   text-align: left;
+}
+
+button {
+  display: inline-block;
+  width: 35px;
+  height: 35px;
+  text-align: center;
+  font-size: 1.5em;
+  margin: 0 1%;
+  border: 0;
 }
