@@ -8,7 +8,7 @@ var jigglypuff = 39;
 // 133 Eevee
 // 49 JigglyPuff
 
-$.ajax({url:'https://fizal.me/pokeapi/api/' + eevee + '.json',
+$.ajax({url:'https://fizal.me/pokeapi/api/' + jigglypuff + '.json',
 success: function(response) {
   console.log(response)
   console.log(response['sprites']['front_default'])
@@ -44,3 +44,18 @@ function pokeStats(x){
   }
   console.log("Height: ." + stats['height'])
 }
+
+class Pokemon {
+  constructor(nationalNumb) {
+    this.nationalNumb = nationalNum;
+    this.hp = x['stats'][5]['base_stat']
+    this.attack = x['stats'][4]['base_stat']
+    this.defence = x['stats'][3]['base_stat']
+    this.abilities = x['abilities']
+  }
+};
+
+
+// 1. Create a class for each pokemon instance.
+// 2. Figure out if ajax should be included within the class or if it should be considered my pokedex.
+// 3. Maybe pokemon has the info and the ajax calls it?
