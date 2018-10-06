@@ -4,8 +4,12 @@ var pokeName = document.getElementById('name_of_pokemon');
 var leftButton = document.getElementById('left')
 var rightButton = document.getElementById('right')
 
-// var eevee = 133;
-// var jigglypuff = 39;
+var dynamicHeight = document.getElementById('height');
+var dynamicHp = document.getElementById('hp');
+var dynamicAttack = document.getElementById('attack');
+var dynamicAbilities1 = document.getElementById('abilities1');
+var dynamicAbilities2 = document.getElementById('abilities2');
+var dynamicAbilities3 = document.getElementById('abilities3');
 
 // -----------------------------EVENT LISTENERS---------------------------------
 
@@ -33,43 +37,56 @@ leftButton.addEventListener('click', function() {
 // -----------------------------------END---------------------------------------
 
 
+// --------------------------------AJAX CALL------------------------------------
+
 function ajaxCall() {
     $.ajax({url:'https://fizal.me/pokeapi/api/' + jordansDeck.pokedex[clicks].nationalNumb + '.json',
     success: function(response) {
       console.log(response)
-      console.log(response['sprites']['front_default'])
       changeName(response)
       pokePic(response)
-      pokeStats(response)
+      statAssignment(response)
+      dynamicStats()
+      console.log(jordansDeck.pokedex[clicks]['name'])
+      console.log(jordansDeck.pokedex[clicks])
     }
   })
 }
-
-
 
 // -----------------------------POKE PIC FUNCTION-------------------------------
 
 function pokePic(x) {
     mainScreen.style.backgroundImage = "url(" + x['sprites']['front_default'] + ")";
+
 }
 
 
 // ----------------------------POKE NAME FUNCTION-------------------------------
 
 function changeName(x) {
-  console.log(x.name)
   pokeName.innerHTML = x.name
 
 }
 
-// -----------------------------POKE PIC FUNCTION-------------------------------
+// ---------------------FUNCTION ASSIGNING POKEMON STATS------------------------
 
-function pokeStats(x){
-  var stats = {
-    height: x['height'],
+function statAssignment(response) {
+  jordansDeck.pokedex[clicks].name = response['name'];
+  jordansDeck.pokedex[clicks].height = response['height'];
+  jordansDeck.pokedex[clicks].hp = response['stats'][5]['base_stat'];
+  jordansDeck.pokedex[clicks].attack = response['stats'][4]['base_stat'];
+  jordansDeck.pokedex[clicks].abilities = response['abilities'];
+}
 
-  }
-  console.log("Height: ." + stats['height'])
+// -------------------FUNCTION DYNAMICALLY CHANGING STATS-----------------------
+
+function dynamicStats() {
+  dynamicHeight.innerHTML = jordansDeck.pokedex[clicks].height
+  dynamicHp.innerHTML = jordansDeck.pokedex[clicks].hp
+  dynamicAttack.innerHTML = jordansDeck.pokedex[clicks].attack
+  dynamicAbilities1.innerHTML = jordansDeck.pokedex[clicks].abilities [0]['ability']['name']
+  dynamicAbilities2.innerHTML = jordansDeck.pokedex[clicks].abilities [1]['ability']['name']
+  dynamicAbilities3.innerHTML = jordansDeck.pokedex[clicks].abilities [2]['ability']['name']
 }
 
 // ------------------------CREATE A POKEMON  CONSTRUCTOR------------------------
@@ -77,12 +94,17 @@ function pokeStats(x){
 class Pokemon {
   constructor(nationalNumb) {
     this.nationalNumb = nationalNumb;
-
+    this.name;
+    this.height;
+    this.hp;
+    this.attack;
+    this.abilities;
   }
 };
 
 var jigglypuff = new Pokemon(39)
 var eevee = new Pokemon(133)
+var psyduck = new Pokemon(54)
 
 // --------------------CREATE A POKEMON TRAINER CONSTRUCTOR---------------------
 
@@ -107,6 +129,7 @@ var jordansDeck = new Trainer ('Jordan', 'Speed')
 
 jordansDeck.addToPokedex(jigglypuff)
 jordansDeck.addToPokedex(eevee)
+jordansDeck.addToPokedex(psyduck)
 
 // 1. Create a class for each pokemon instance.
 // 2. Figure out if ajax should be included within the class or if it should be considered my pokedex.
