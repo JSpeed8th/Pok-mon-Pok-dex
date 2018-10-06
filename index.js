@@ -1,22 +1,49 @@
 var mainScreen = document.getElementById('main_screen');
 var secondScreen = document.getElementById('second_screen');
 var pokeName = document.getElementById('name_of_pokemon');
+var leftButton = document.getElementById('left')
+var rightButton = document.getElementById('right')
 
+// var eevee = 133;
+// var jigglypuff = 39;
 
-var eevee = 133;
-var jigglypuff = 39;
-// 133 Eevee
-// 49 JigglyPuff
+// -----------------------------EVENT LISTENERS---------------------------------
 
-$.ajax({url:'https://fizal.me/pokeapi/api/' + jigglypuff + '.json',
-success: function(response) {
-  console.log(response)
-  console.log(response['sprites']['front_default'])
-  changeName(response)
-  pokePic(response)
-  pokeStats(response)
+var clicks = 0;
+rightButton.addEventListener('click', function() {
+  if(clicks < jordansDeck.pokedex.length - 1) {
+    clicks++
+    ajaxCall()
+  } else {
+    clicks = 0;
+    ajaxCall()
   }
 })
+
+leftButton.addEventListener('click', function() {
+  if(clicks > jordansDeck.pokedex.length - 1) {
+    clicks--
+    ajaxCall()
+  } else {
+    clicks = 0;
+    ajaxCall()
+  }
+})
+
+// -----------------------------------END---------------------------------------
+
+
+function ajaxCall() {
+    $.ajax({url:'https://fizal.me/pokeapi/api/' + jordansDeck.pokedex[clicks].nationalNumb + '.json',
+    success: function(response) {
+      console.log(response)
+      console.log(response['sprites']['front_default'])
+      changeName(response)
+      pokePic(response)
+      pokeStats(response)
+    }
+  })
+}
 
 
 
@@ -49,13 +76,13 @@ function pokeStats(x){
 
 class Pokemon {
   constructor(nationalNumb) {
-    this.nationalNumb = nationalNum;
-    this.hp = x['stats'][5]['base_stat']
-    this.attack = x['stats'][4]['base_stat']
-    this.defence = x['stats'][3]['base_stat']
-    this.abilities = x['abilities']
+    this.nationalNumb = nationalNumb;
+
   }
 };
+
+var jigglypuff = new Pokemon(39)
+var eevee = new Pokemon(133)
 
 // --------------------CREATE A POKEMON TRAINER CONSTRUCTOR---------------------
 
@@ -66,12 +93,20 @@ class Trainer{
     this.pokedex = [];
   }
   addToPokedex(pokemonObject) {
-    this.pokedex.push(pokemonObject)
+    this.pokedex.push(pokemonObject);
   }
   all() {
-    return this.pokedex
+    return this.pokedex;
+  }
+  get(pokemon) {
+    return pokemon;
   }
 }
+
+var jordansDeck = new Trainer ('Jordan', 'Speed')
+
+jordansDeck.addToPokedex(jigglypuff)
+jordansDeck.addToPokedex(eevee)
 
 // 1. Create a class for each pokemon instance.
 // 2. Figure out if ajax should be included within the class or if it should be considered my pokedex.
