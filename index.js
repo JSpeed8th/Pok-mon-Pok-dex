@@ -45,6 +45,8 @@ function pokeStats(x){
   console.log("Height: ." + stats['height'])
 }
 
+// ------------------------CREATE A POKEMON  CONSTRUCTOR------------------------
+
 class Pokemon {
   constructor(nationalNumb) {
     this.nationalNumb = nationalNum;
@@ -55,6 +57,21 @@ class Pokemon {
   }
 };
 
+// --------------------CREATE A POKEMON TRAINER CONSTRUCTOR---------------------
+
+class Trainer{
+  constructor(fname, lname) {
+    this.fname = fname;
+    this.lname = lname;
+    this.pokedex = [];
+  }
+  addToPokedex(pokemonObject) {
+    this.pokedex.push(pokemonObject)
+  }
+  all() {
+    return this.pokedex
+  }
+}
 
 // 1. Create a class for each pokemon instance.
 // 2. Figure out if ajax should be included within the class or if it should be considered my pokedex.
