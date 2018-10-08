@@ -1,8 +1,11 @@
+// -------------------ASSIGNING VARIABLES TO HTML ELEMENTS----------------------
+
 var mainScreen = document.getElementById('main_screen');
 var secondScreen = document.getElementById('second_screen');
 var pokeName = document.getElementById('name_of_pokemon');
-var leftButton = document.getElementById('left')
-var rightButton = document.getElementById('right')
+var leftButton = document.getElementById('left');
+var rightButton = document.getElementById('right');
+var headerName = document.getElementById('headerName');
 
 var dynamicHeight = document.getElementById('height');
 var dynamicHp = document.getElementById('hp');
@@ -13,9 +16,10 @@ var dynamicAbilities3 = document.getElementById('abilities3');
 
 // -----------------------------EVENT LISTENERS---------------------------------
 
-var clicks = 0;
+// Every click will cycle through Trainer's array of pokemon and call ajax function below.
+
+var clicks = -1;
 rightButton.addEventListener('click', function() {
-  leftButton.style.borderLeft = '5px solid black'
   if(clicks < jordansDeck.pokedex.length - 1) {
     clicks++
     ajaxCall()
@@ -26,11 +30,10 @@ rightButton.addEventListener('click', function() {
 })
 
 leftButton.addEventListener('click', function() {
-  if(clicks > jordansDeck.pokedex.length - 1) {
-    clicks--
-    ajaxCall()
+  if(clicks == 0) {
+    return;
   } else {
-    clicks = 0;
+    clicks--
     ajaxCall()
   }
 })
@@ -53,6 +56,10 @@ function ajaxCall() {
     }
   })
 }
+
+
+
+         // DYNAMICALLY CHANGING INNER HTML BY CALLING FUNCTIONS BELOW
 
 // -----------------------------POKE PIC FUNCTION-------------------------------
 
@@ -135,3 +142,7 @@ jordansDeck.addToPokedex(psyduck)
 // 1. Create a class for each pokemon instance.
 // 2. Figure out if ajax should be included within the class or if it should be considered my pokedex.
 // 3. Maybe pokemon has the info and the ajax calls it?
+
+// ---------REPLACES 'POKEMON' WITHIN TITLE WITH TRAINER'S FIRST NAME-----------
+
+headerName.innerHTML = jordansDeck.fname + "'s";

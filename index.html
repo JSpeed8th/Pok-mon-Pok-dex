@@ -5,12 +5,13 @@
     <title>Pokedex</title>
     <link rel="stylesheet" type="text/css" href="index.css">
     <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Russo+One" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   </head>
   <body>
 
     <div class="wrapper">
-      <h1><span>Pokémon</span> Pokédex</h1>
+      <h1 id="title"><span id=headerName>Pokémon</span> Pokédex</h1>
       <div id="main_screen">
         <h1 id="name_of_pokemon"></h1>
       </div>
@@ -20,6 +21,7 @@
           <h4>Height:</h4>
           <p id="height"></p>
         </div>
+
         <div class='quadrent'>
           <h4>HP:</h4>
           <p id="hp"></p>
@@ -37,13 +39,25 @@
       </div>
 
       <div id="d-pad">
-        <button type="button" id="left"><</button>
-        <button type="button" id="right">></button>
+        <button type="button" id="left"><ion-icon name="arrow-dropleft"></ion-icon></button>
+        <button type="button" id="right"><ion-icon name="arrow-dropright"></ion-icon></button>
       </div>
     </div>
 
+    <div id="second_screen_faux_buttons">
+      <div id="blue_set"></div>
+      <div id="orange_circle"></div>
+      <div id="green_circle"></div>
+
+      <div id="orange_oval"></div>
+      <div id="green_oval"></div>
+
+      <div class="orange_screens" id="first_orange_screen"></div>
+      <div class="orange_screens"></div>
+    </div>
 
 
+    <script src="https://unpkg.com/ionicons@4.4.4/dist/ionicons.js"></script>
     <script type="text/javascript" src="index.js"></script>
   </body>
 </html>
