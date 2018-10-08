@@ -31,7 +31,9 @@ rightButton.addEventListener('click', function() {
 
 leftButton.addEventListener('click', function() {
   if(clicks == 0) {
-    return;
+    clicks = jordansDeck.pokedex.length - 1
+    ajaxCall()
+    console.log(clicks)
   } else {
     clicks--
     ajaxCall()
