@@ -1,6 +1,6 @@
 body {
   font-family: 'Press Start 2P', cursive;
-  padding: 4% 5%;
+  padding: 0 5% 4% 5%;
   background-color: #CC0A3E;
   /* background-color: #FE0700; */
 }
@@ -9,11 +9,29 @@ body {
   font-family: 'Russo One', sans-serif;
   text-align: center;
   /* font-size: 22px; */
+  margin: 0;
+}
+
+nav {
+  background-color: white;
+  margin: 0 auto;
+
+}
+
+#gray_border {
+  position: absolute;
+  top: 140px;
+  width: 350px;
+  height: 320px;
+  background-color: #B2B1B2;
+  border-radius: 5%;
+  box-shadow: 0 3px #034c03;
 }
 
 #main_screen {
+  margin: 0 auto;
   top: 170px;
-  left: 10vw;
+  left: 8.3vw;
   width: 270px;
   height: 200px;
   background-position: center;
@@ -28,13 +46,24 @@ body {
 
 #blue_circle_button {
   position: absolute;
-  top: 410px;
-  left: 125px;
+  top: 470px;
+  left: 80px;
   height: 45px;
   width: 45px;
   border-radius: 50%;
   background-color: #327AFC;
   box-shadow: -2px 2px #034c03;
+}
+
+#yellow_screen{
+  position: absolute;
+  top: 570px;
+  left: 160px;
+  width: 150px;
+  height: 70px;
+  background-color: #FCFA04;
+  border-radius: 5%;
+  box-shadow: -2px 3px #7c4b01;
 }
 
 #main_screen, #second_screen {
@@ -91,7 +120,7 @@ button {
 #d-pad {
   width: 10%;
   position: absolute;
-  top: 430px;
+  top: 470px;
   left: 25vw;
 }
 
@@ -152,7 +181,7 @@ button {
 
 .orange_screens{
   position: absolute;
-  top: 550px;
+  top: 570px;
   left: 79vw;
   width: 11.5vw;
   height: 60px;
