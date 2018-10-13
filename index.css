@@ -2,7 +2,6 @@ body {
   font-family: 'Press Start 2P', cursive;
   padding: 0 5% 4% 5%;
   background-color: #CC0A3E;
-  /* background-color: #FE0700; */
   padding: 0;
   margin: 0;
 
@@ -11,7 +10,6 @@ body {
 #title {
   font-family: 'Russo One', sans-serif;
   text-align: center;
-  /* font-size: 22px; */
   margin: 0 auto;
   width: 100%;
 }
